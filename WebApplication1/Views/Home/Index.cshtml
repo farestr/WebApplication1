@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+    <!-- Single statement block -->
+    @{ var myMessage = "Hello World"; }
+
+    <!-- Inline expression or variable -->
+    <p>The value of myMessage is: @myMessage</p>
+
+    <!-- Multi-statement block -->
+    @{
+        var greeting = "Welcome to our site!";
+        var weekDay = DateTime.Now.DayOfWeek;
+        var greetingMessage = greeting + " Here in Huston it is: " + weekDay;
+    }
+    <p>The greeting is: @greetingMessage</p>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <td>Value</td>
+        </tr>
+        <tr>
+            <td>Day</td>
+            <td>@DateTime.Now.DayOfWeek</td>
+        </tr>
+        <tr><td>Hour</td><td>@DateTime.Now.Hour</td></tr>
+    </table>
+    @{
+        var text = "";
+        if (DateTime.Now.Hour > 12)
+        { text = "good evening"; }
+        else
+        { text = "Good Morning"; }
+
+    }
+    <p>The message=@text</p>
+    @{
+        var i = 0;
+        while (i < 5)
+        {
+            i += 1;
+            <p>Line @i</p>
+        }
+    }
+
+    @foreach (var x in ViewBag.testarr)
+    {
+        <p>@x</p>}
+    <ul>
+        @foreach (var y in ViewData["test"] as IList<String>)
+        {
+            <li>@y</li>
+        }
+    </ul>
+
+</div>
+@Html.Partial("_Contactus")
