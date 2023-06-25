@@ -19,10 +19,12 @@
 </p>
 <table>
     <thead>
-    <th>@Html.DisplayNameFor(model => model.CityID)</th>
-    <th>
-        @Html.DisplayNameFor(model => model.CityName)
-</th>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.CityID)</th>
+            <th>
+                @Html.DisplayNameFor(model => model.CityName)
+            </th>
+        </tr>
     </thead>
 <tbody>
     @foreach (var item in Model)
@@ -34,5 +36,5 @@
     }
 </tbody>
 </table>
-@Html.Partial("_Contactus")
+<Partial name="_Contactus" />
 

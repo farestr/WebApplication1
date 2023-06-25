@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<WebApplication1.Models.Entities.Customer>
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<h1>Customer</h1>
+<p>
+    @ViewBag.test
+</p>
+<p>
+    @Html.ActionLink("Create New", "Create")
+    <br />
+    @Html.ActionLink("Update", "Update")
+    <br />
+    @Html.ActionLink("Delete", "Delete")
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.id)</th>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CityID)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(model => item.id)</td>
+            <td>@Html.DisplayFor(model => item.name)</td>
+            <td>@Html.DisplayFor(model => item.phone)</td>
+            <td>
+               @Html.LabelFor(model => item.cities.CityName, htmlAttributes: new { @class = "control-label col-md-2" })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<Partial name="_Contactus" />

@@ -9,11 +9,13 @@ namespace WebApplication1.Models
 {
     public class Context: DbContext
     {
+
         public Context(DbContextOptions<Context> options) : base(options) { 
           
         }
 
         public DbSet<Cities> Cities { get; set;  }
+        public DbSet<Customer> customer { get; set; }
 
     }
 }
