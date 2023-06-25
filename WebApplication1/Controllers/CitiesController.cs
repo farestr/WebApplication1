@@ -20,6 +20,9 @@ namespace WebApplication1.Controllers
             var citiesList = _context.Cities.ToList();
             return View(citiesList);
         }
+
+
+
         [HttpGet]
         public IActionResult Create()
         {
@@ -32,6 +35,9 @@ namespace WebApplication1.Controllers
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
+
+
+
         [HttpGet]
         public IActionResult Update(int CityID)
         {
@@ -53,6 +59,8 @@ namespace WebApplication1.Controllers
             }
             
         }
+
+
         [HttpGet]
         public IActionResult Delete(int CityId)
         {
