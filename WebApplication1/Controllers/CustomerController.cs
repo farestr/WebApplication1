@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApplication1.Models;
 using WebApplication1.Models.Entities;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace WebApplication1.Controllers
 {
@@ -17,8 +19,8 @@ namespace WebApplication1.Controllers
         }
         public IActionResult Index()
         {
-            var customerList = _context.customer.ToList();
-            return View(customerList);
+            var customers = _context.customer.Include(c => c.cities).ToList();
+            return View(customers);
         }
 
         [HttpGet]

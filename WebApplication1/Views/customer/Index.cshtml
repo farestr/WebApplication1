@@ -21,29 +21,31 @@
     <thead>
         <tr>
             <th>@Html.DisplayNameFor(model => model.id)</th>
-            <th>
-                @Html.DisplayNameFor(model => model.name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.phone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CityID)
-            </th>
+            <th>@Html.DisplayNameFor(model => model.name)</th>
+            <th>@Html.DisplayNameFor(model => model.phone)</th>
+            <th>City</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>@Html.DisplayFor(model => item.id)</td>
-            <td>@Html.DisplayFor(model => item.name)</td>
-            <td>@Html.DisplayFor(model => item.phone)</td>
-            <td>
-               @Html.LabelFor(model => item.cities.CityName, htmlAttributes: new { @class = "control-label col-md-2" })
-            </td>
-        </tr>
+            <tr>
+                <td>@Html.DisplayFor(model => item.id)</td>
+                <td>@Html.DisplayFor(model => item.name)</td>
+                <td>@Html.DisplayFor(model => item.phone)</td>
+                <td>
+                    @if (item.cities != null)
+                    {
+                        @Html.DisplayFor(model => item.cities.CityName)
+                    }
+                    else
+                    {
+                        <span>No city assigned</span>
+                    }
+                </td>
+            </tr>
         }
     </tbody>
 </table>
+
 <Partial name="_Contactus" />
